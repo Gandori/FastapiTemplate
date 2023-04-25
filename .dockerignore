@@ -1,0 +1,14 @@
+.git
+.gitignore
+__pycache__
+.pytest_cache
+venv
+tests
+.vscode
+.env
+build
+conftest.py
+Dockerfile
+docker-compose.yml
+*.md
+*.log

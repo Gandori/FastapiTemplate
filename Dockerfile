@@ -1,0 +1,37 @@
+FROM python:3.11-alpine
+
+
+# uvicorn
+ENV HOST=0.0.0.0
+ENV PORT=10000
+ENV LOG_LEVEL=info
+ENV WORKERS=1
+ENV BACKLOCK=2048
+ENV LIMIT_MAX_REQUESTS=1000
+ENV LIMIT_CONCURRENCY=1000
+ENV TIMEOUT_KEEP_ALIVE=5
+ENV SERVER_HEADER=False
+ENV DATE_HEADER=False
+
+# api
+ENV PREFIX=
+ENV DOCS_URL=/docs
+ENV ALLOWED_HOSTS=*
+ENV SECRET_KEY=v9D6&6^Z5yvaTvylzhZ@Svem7$TZTtr3NJmZR^G$yUMqCLRgH
+ENV COOKIE_NAME=template
+
+# database
+ENV DB_DRIVER=postgresql+asyncpg
+ENV DB_PORT=5432
+ENV DB_HOST=template-db
+ENV DB_DATABASE=template
+ENV DB_USERNAME=template
+ENV DB_PASSWORD=template
+
+WORKDIR /microservice
+
+COPY . .
+
+RUN pip install --upgrade pip && pip install .
+
+CMD ["python3", "." ]

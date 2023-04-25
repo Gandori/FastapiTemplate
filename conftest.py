@@ -3,7 +3,7 @@ import time
 
 
 def pytest_sessionstart() -> None:
-    os.system('bash start_docker_compose_dev.sh')
+    os.system('bash start_docker_compose.dev.sh')
     time.sleep(10)
 
 
